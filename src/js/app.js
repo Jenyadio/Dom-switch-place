@@ -1,11 +1,14 @@
-// TODO: write code here
-
-// comment this to pass build
-const unusedVariable = 'variable';
-
-// for demonstration purpose only
-export default function demo(value) {
-  return value;
+function switchPlace() {
+  const hole = document.querySelectorAll('.hole');
+  const index = Math.floor(Math.random() * hole.length);
+  hole.forEach((item) => {
+    if (item.classList.contains('hole_has-mole')) {
+      item.classList.remove('hole_has-mole');
+    }
+  });
+  hole[index].classList.add('hole_has-mole');
 }
 
-console.log('app.js included');
+document.addEventListener('DOMContentLoaded', () => {
+  setInterval(switchPlace, 1000);
+});
